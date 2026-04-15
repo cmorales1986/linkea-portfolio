@@ -34,3 +34,10 @@ body {
 ::-webkit-scrollbar-track { background: var(--bg); }
 ::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 2px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+/* ── MOBILE ── */
+@media (max-width: 768px) {
+  nav {
+    padding: 1rem 1.5rem !important;
+  }
+}

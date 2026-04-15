@@ -36,12 +36,7 @@ const services = [
 
 export default function Services() {
   return (
-    <section id="servicios" style={{
-      position: 'relative',
-      zIndex: 1,
-      padding: '6rem 4rem',
-      background: 'var(--bg2)',
-    }}>
+    <section id="servicios" className="services-section">
 
       <div style={{
         fontFamily: 'var(--font-mono)',
@@ -73,17 +68,40 @@ export default function Services() {
         Soluciones tecnológicas integrales para empresas que quieren crecer.
       </p>
 
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(3, 1fr)',
-        gap: '1px',
-        background: 'var(--border)',
-        border: '1px solid var(--border)',
-      }}>
+      <div className="services-grid">
         {services.map((s) => (
           <ServiceCard key={s.name} {...s} />
         ))}
       </div>
+
+      <style>{`
+        .services-section {
+          position: relative;
+          z-index: 1;
+          padding: 6rem 4rem;
+          background: var(--bg2);
+        }
+        .services-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 1px;
+          background: var(--border);
+          border: 1px solid var(--border);
+        }
+        @media (max-width: 768px) {
+          .services-section {
+            padding: 4rem 1.5rem !important;
+          }
+          .services-grid {
+            grid-template-columns: 1fr 1fr !important;
+          }
+        }
+        @media (max-width: 480px) {
+          .services-grid {
+            grid-template-columns: 1fr !important;
+          }
+        }
+      `}</style>
 
     </section>
   )

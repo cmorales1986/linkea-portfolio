@@ -1,14 +1,8 @@
-/* eslint-disable react/jsx-no-comment-textnodes */
 'use client'
 
 export default function Contact() {
   return (
-    <section id="contacto" style={{
-      position: 'relative',
-      zIndex: 1,
-      padding: '6rem 4rem',
-      background: 'var(--bg)',
-    }}>
+    <section id="contacto" className="contact-section">
       <div style={{ maxWidth: '680px', margin: '0 auto', textAlign: 'center' }}>
 
         <div style={{
@@ -50,7 +44,12 @@ export default function Contact() {
         }}>
 
           {/* Fila nombre + email */}
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '1rem' }}>
+          <div className="form-row" style={{
+            display: 'grid',
+            gridTemplateColumns: '1fr 1fr',
+            gap: '1rem',
+            marginBottom: '1rem',
+          }}>
             <FormField label="Nombre" type="text" placeholder="Tu nombre" />
             <FormField label="Email" type="email" placeholder="correo@empresa.com" />
           </div>
@@ -65,7 +64,7 @@ export default function Contact() {
               fontSize: '0.68rem',
               color: 'var(--muted)',
               letterSpacing: '0.12em',
-              textTransform: 'uppercase',
+              textTransform: 'uppercase' as const,
               marginBottom: '0.5rem',
             }}>
               Servicio de interés
@@ -81,7 +80,7 @@ export default function Contact() {
                 fontFamily: 'var(--font-outfit), sans-serif',
                 fontSize: '0.88rem',
                 outline: 'none',
-                appearance: 'none',
+                appearance: 'none' as const,
                 cursor: 'pointer',
               }}
               onFocus={e => {
@@ -111,7 +110,7 @@ export default function Contact() {
               fontSize: '0.68rem',
               color: 'var(--muted)',
               letterSpacing: '0.12em',
-              textTransform: 'uppercase',
+              textTransform: 'uppercase' as const,
               marginBottom: '0.5rem',
             }}>
               Mensaje
@@ -129,7 +128,7 @@ export default function Contact() {
                 fontFamily: 'var(--font-outfit), sans-serif',
                 fontSize: '0.88rem',
                 outline: 'none',
-                resize: 'vertical',
+                resize: 'vertical' as const,
                 minHeight: '120px',
               }}
               onFocus={e => {
@@ -174,11 +173,33 @@ export default function Contact() {
 
         </div>
       </div>
+
+      <style>{`
+        .contact-section {
+          position: relative;
+          zIndex: 1;
+          padding: 6rem 4rem;
+          background: var(--bg);
+        }
+        @media (max-width: 768px) {
+          .contact-section {
+            padding: 4rem 1.5rem !important;
+          }
+          .form-row {
+            grid-template-columns: 1fr !important;
+          }
+        }
+      `}</style>
+
     </section>
   )
 }
 
-function FormField({ label, type, placeholder }: { label: string; type: string; placeholder: string }) {
+function FormField({ label, type, placeholder }: {
+  label: string
+  type: string
+  placeholder: string
+}) {
   return (
     <div style={{ marginBottom: '1rem' }}>
       <label style={{
@@ -187,7 +208,7 @@ function FormField({ label, type, placeholder }: { label: string; type: string; 
         fontSize: '0.68rem',
         color: 'var(--muted)',
         letterSpacing: '0.12em',
-        textTransform: 'uppercase',
+        textTransform: 'uppercase' as const,
         marginBottom: '0.5rem',
       }}>
         {label}

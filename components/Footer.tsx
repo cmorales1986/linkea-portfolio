@@ -4,16 +4,7 @@ import Image from 'next/image'
 
 export default function Footer() {
   return (
-    <footer style={{
-      position: 'relative',
-      zIndex: 1,
-      borderTop: '1px solid var(--border)',
-      padding: '2rem 4rem',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'space-between',
-      background: 'var(--bg2)',
-    }}>
+    <footer className="footer">
 
       <Image
         src="/logos/LINKEA_3D_transparent.png"
@@ -34,12 +25,13 @@ export default function Footer() {
         © 2025 Linkea. Asunción, Paraguay.
       </div>
 
-      <div style={{ display: 'flex', gap: '1.5rem' }}>
+      <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap', justifyContent: 'center' }}>
         {[
           { label: 'linkea.com.py', href: 'https://linkea.com.py' },
           { label: 'GitHub', href: '#' },
           { label: 'LinkedIn', href: '#' },
-        ].map(({ label, href }) => (          <a
+        ].map(({ label, href }) => ( <a
+          
             key={label}
             href={href}
             target={href.startsWith('http') ? '_blank' : undefined}
@@ -57,6 +49,29 @@ export default function Footer() {
           </a>
         ))}
       </div>
+
+      <style>{`
+        .footer {
+          position: relative;
+          z-index: 1;
+          border-top: 1px solid var(--border);
+          padding: 2rem 4rem;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          background: var(--bg2);
+          flex-wrap: wrap;
+          gap: 1rem;
+        }
+        @media (max-width: 768px) {
+          .footer {
+            flex-direction: column !important;
+            align-items: center !important;
+            text-align: center !important;
+            padding: 2rem 1.5rem !important;
+          }
+        }
+      `}</style>
 
     </footer>
   )

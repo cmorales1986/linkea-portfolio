@@ -19,11 +19,9 @@ export default function Hero() {
     const cols = Math.floor(canvas.width / fontSize)
     const drops: number[] = Array(cols).fill(1)
 
-    // Caracteres: mezcla de katakana + números + símbolos tech
     const chars = 'アイウエオカキクケコサシスセソタチツテトナニヌネノ0123456789ABCDEF<>{}[]|/\\=+-*'
 
     const draw = () => {
-      // Fade sutil — fondo semitransparente
       ctx.fillStyle = 'rgba(6, 9, 15, 0.05)'
       ctx.fillRect(0, 0, canvas.width, canvas.height)
 
@@ -31,7 +29,6 @@ export default function Hero() {
         const char = chars[Math.floor(Math.random() * chars.length)]
         const x = i * fontSize
 
-        // Primer caracter más brillante
         if (drops[i] * fontSize < canvas.height * 0.3) {
           ctx.fillStyle = 'rgba(0, 212, 255, 0.6)'
         } else {
@@ -41,7 +38,6 @@ export default function Hero() {
         ctx.font = `${fontSize}px monospace`
         ctx.fillText(char, x, drops[i] * fontSize)
 
-        // Reset aleatorio
         if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
           drops[i] = 0
         }
@@ -64,16 +60,7 @@ export default function Hero() {
   }, [])
 
   return (
-    <section id="hero" style={{
-      position: 'relative',
-      minHeight: '100vh',
-      display: 'grid',
-      gridTemplateColumns: '1fr 1fr',
-      alignItems: 'center',
-      padding: '7rem 4rem 4rem',
-      overflow: 'hidden',
-      gap: '4rem',
-    }}>
+    <section id="hero" className="hero-section">
 
       {/* Canvas Matrix */}
       <canvas
@@ -86,7 +73,7 @@ export default function Hero() {
         }}
       />
 
-      {/* Gradient overlay para que el contenido se lea bien */}
+      {/* Gradient overlay */}
       <div style={{
         position: 'absolute',
         inset: 0,
@@ -110,7 +97,7 @@ export default function Hero() {
           color: 'var(--accent)',
           letterSpacing: '0.12em',
           marginBottom: '2rem',
-          textTransform: 'uppercase',
+          textTransform: 'uppercase' as const,
         }}>
           <span style={{
             width: '7px', height: '7px',
@@ -149,7 +136,7 @@ export default function Hero() {
           apps web e infraestructura tecnológica que escalan con tu negocio.
         </p>
 
-        <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', flexWrap: 'wrap' }}>
+        <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', flexWrap: 'wrap' as const }}>
           
            <a href="#proyectos"
             style={{
@@ -176,7 +163,7 @@ export default function Hero() {
             Ver proyectos
           </a>
           
-          <a  href="#contacto"
+           <a href="#contacto"
             style={{
               color: 'var(--muted2)',
               padding: '0.9rem 2rem',
@@ -203,16 +190,15 @@ export default function Hero() {
       </div>
 
       {/* RIGHT — Logo + Stats */}
-      <div style={{
+      <div className="hero-right" style={{
         position: 'relative',
         zIndex: 1,
         display: 'flex',
-        flexDirection: 'column',
+        flexDirection: 'column' as const,
         alignItems: 'center',
         gap: '2rem',
       }}>
 
-        {/* Glow detrás del logo */}
         <div style={{
           position: 'relative',
           display: 'flex',
@@ -231,6 +217,7 @@ export default function Hero() {
             alt="Linkea"
             width={280}
             height={280}
+            className="hero-logo-img"
             style={{
               objectFit: 'contain',
               filter: 'drop-shadow(0 0 30px rgba(0,212,255,0.3)) drop-shadow(0 0 60px rgba(59,94,255,0.2))',
@@ -243,21 +230,23 @@ export default function Hero() {
         </div>
 
         {/* Stats */}
-        <div style={{ display: 'flex', gap: '1rem' }}>
+        <div className="stats-row" style={{ display: 'flex', gap: '1rem' }}>
           {[
             { num: '3+', label: 'Años' },
             { num: '6+', label: 'Proyectos' },
             { num: 'PY', label: 'Paraguay' },
           ].map(({ num, label }) => (
-            <div key={label} style={{
-              background: 'var(--card)',
-              border: '1px solid var(--border)',
-              padding: '1.2rem 1.5rem',
-              borderRadius: '4px',
-              textAlign: 'center',
-              minWidth: '90px',
-              transition: 'border-color 0.3s',
-            }}
+            <div
+              key={label}
+              style={{
+                background: 'var(--card)',
+                border: '1px solid var(--border)',
+                padding: '1.2rem 1.5rem',
+                borderRadius: '4px',
+                textAlign: 'center' as const,
+                minWidth: '90px',
+                transition: 'border-color 0.3s',
+              }}
               onMouseEnter={e => (e.currentTarget.style.borderColor = 'var(--accent)')}
               onMouseLeave={e => (e.currentTarget.style.borderColor = 'var(--border)')}
             >
@@ -282,7 +271,6 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Keyframes */}
       <style>{`
         @keyframes pulse {
           0%, 100% { opacity: 1; transform: scale(1); }
@@ -295,6 +283,33 @@ export default function Hero() {
         @keyframes float {
           0%, 100% { transform: translateY(0px); }
           50% { transform: translateY(-12px); }
+        }
+        .hero-section {
+          position: relative;
+          min-height: 100vh;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          align-items: center;
+          padding: 7rem 4rem 4rem;
+          overflow: hidden;
+          gap: 4rem;
+        }
+        @media (max-width: 768px) {
+          .hero-section {
+            grid-template-columns: 1fr !important;
+            padding: 6rem 1.5rem 3rem !important;
+            gap: 2rem !important;
+          }
+          .hero-right {
+            order: -1;
+          }
+          .hero-logo-img {
+            width: 180px !important;
+            height: 180px !important;
+          }
+          .stats-row {
+            gap: 0.5rem !important;
+          }
         }
       `}</style>
 

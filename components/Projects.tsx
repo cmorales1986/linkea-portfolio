@@ -60,12 +60,7 @@ const statusStyles: Record<string, { bg: string; border: string; color: string }
 
 export default function Projects() {
   return (
-    <section id="proyectos" style={{
-      position: 'relative',
-      zIndex: 1,
-      padding: '6rem 4rem',
-      background: 'var(--bg)',
-    }}>
+    <section id="proyectos" className="projects-section">
 
       <div style={{
         fontFamily: 'var(--font-mono)',
@@ -96,19 +91,51 @@ export default function Projects() {
         Sistemas reales en producción, resolviendo problemas concretos de empresas paraguayas.
       </p>
 
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(2, 1fr)',
-        gap: '1px',
-        background: 'var(--border)',
-        border: '1px solid var(--border)',
-      }}>
+      <div className="projects-grid">
         {projects.map((p) =>
           p.featured
             ? <FeaturedCard key={p.num} {...p} />
             : <ProjectCard key={p.num} {...p} />
         )}
       </div>
+
+      <style>{`
+        .projects-section {
+          position: relative;
+          z-index: 1;
+          padding: 6rem 4rem;
+          background: var(--bg);
+        }
+        .projects-grid {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 1px;
+          background: var(--border);
+          border: 1px solid var(--border);
+        }
+        .featured-card {
+          grid-column: 1 / -1;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 3rem;
+          align-items: center;
+        }
+        @media (max-width: 768px) {
+          .projects-section {
+            padding: 4rem 1.5rem !important;
+          }
+          .projects-grid {
+            grid-template-columns: 1fr !important;
+          }
+          .featured-card {
+            grid-template-columns: 1fr !important;
+            gap: 1.5rem !important;
+          }
+          .featured-visual {
+            display: none !important;
+          }
+        }
+      `}</style>
 
     </section>
   )
@@ -118,14 +145,10 @@ function FeaturedCard({ num, status, statusLabel, name, desc, tech, link, linkLa
   const s = statusStyles[status]
   return (
     <div
+      className="featured-card"
       style={{
-        gridColumn: '1 / -1',
         background: 'var(--card)',
         padding: '2.5rem',
-        display: 'grid',
-        gridTemplateColumns: '1fr 1fr',
-        gap: '3rem',
-        alignItems: 'center',
         transition: 'background 0.3s',
         position: 'relative',
         overflow: 'hidden',
@@ -149,7 +172,7 @@ function FeaturedCard({ num, status, statusLabel, name, desc, tech, link, linkLa
           fontFamily: 'var(--font-mono)', fontSize: '0.63rem',
           padding: '0.22rem 0.7rem', borderRadius: '100px',
           letterSpacing: '0.08em', marginBottom: '1rem',
-          textTransform: 'uppercase',
+          textTransform: 'uppercase' as const,
           background: s.bg, border: `1px solid ${s.border}`, color: s.color,
         }}>
           <span style={{ width: 5, height: 5, borderRadius: '50%', background: 'currentColor', flexShrink: 0 }} />
@@ -188,8 +211,8 @@ function FeaturedCard({ num, status, statusLabel, name, desc, tech, link, linkLa
         </a>
       </div>
 
-      {/* Visual */}
-      <div style={{
+      {/* Visual — oculto en mobile */}
+      <div className="featured-visual" style={{
         background: 'linear-gradient(135deg, var(--bg) 0%, var(--card2) 100%)',
         border: '1px solid var(--border)',
         borderRadius: '6px',
@@ -231,7 +254,7 @@ function ProjectCard({ num, status, statusLabel, name, desc, tech, link, linkLab
         fontFamily: 'var(--font-mono)', fontSize: '0.63rem',
         padding: '0.22rem 0.7rem', borderRadius: '100px',
         letterSpacing: '0.08em', marginBottom: '1rem',
-        textTransform: 'uppercase',
+        textTransform: 'uppercase' as const,
         background: s.bg, border: `1px solid ${s.border}`, color: s.color,
       }}>
         <span style={{ width: 5, height: 5, borderRadius: '50%', background: 'currentColor', flexShrink: 0 }} />
