@@ -1,6 +1,7 @@
 'use client'
 
 import Image from 'next/image'
+import { useState } from 'react'
 
 const team = [
   {
@@ -9,7 +10,7 @@ const team = [
     role: 'Full Stack Developer',
     desc: 'Desarrollo de sistemas completos, desde la base de datos hasta la interfaz. Especializado en arquitecturas escalables y soluciones empresariales.',
     gradient: 'linear-gradient(135deg, #3b5eff, #00d4ff)',
-    photo: '/people/christian.jpg',
+    photo: '/people/Christian.png',
   },
   {
     initials: 'DC',
@@ -17,7 +18,7 @@ const team = [
     role: 'CEO / Comercial',
     desc: 'Lidera la estrategia de negocio y las relaciones comerciales. Conecta las necesidades del cliente con las soluciones tecnológicas del equipo.',
     gradient: 'linear-gradient(135deg, #7c3aed, #3b5eff)',
-    photo: '/people/dario.jpg',
+    photo: '/people/Dario.png',
   },
   {
     initials: 'DI',
@@ -25,7 +26,7 @@ const team = [
     role: 'UI/UX Designer & DBA',
     desc: 'Diseña experiencias digitales intuitivas y gestiona la arquitectura de bases de datos. La combinación perfecta entre estética y rendimiento.',
     gradient: 'linear-gradient(135deg, #0891b2, #00d4ff)',
-    photo: '/people/diego.jpg',
+    photo: '/people/Diego.png',
   },
 ]
 
@@ -105,6 +106,8 @@ function TeamCard({ initials, name, role, desc, gradient, photo }: {
   gradient: string
   photo: string
 }) {
+  const [photoLoaded, setPhotoLoaded] = useState(false)
+
   return (
     <div
       style={{
@@ -142,36 +145,41 @@ function TeamCard({ initials, name, role, desc, gradient, photo }: {
         }}
       />
 
-      {/* Avatar — foto si existe, iniciales si no */}
-      <div style={{
-        width: '64px', height: '64px',
-        borderRadius: '50%',
-        background: gradient,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        fontSize: '1.2rem',
-        fontWeight: 800,
-        color: 'white',
-        marginBottom: '1.5rem',
-        fontFamily: 'var(--font-mono)',
-        boxShadow: '0 4px 20px rgba(0,212,255,0.2)',
-        overflow: 'hidden',
-        position: 'relative',
-        flexShrink: 0,
-      }}>
-        <Image
-          src={photo}
-          alt={name}
-          fill
-          style={{ objectFit: 'cover' }}
-          onError={(e) => {
-            // Si la foto no carga, oculta la imagen y muestra las iniciales
-            e.currentTarget.style.display = 'none'
-          }}
-        />
-        <span style={{ position: 'relative', zIndex: 1 }}>{initials}</span>
-      </div>
+      {/* Avatar */}
+<div style={{
+  width: '110px', height: '110px',
+  borderRadius: '50%',
+  background: gradient,
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  fontSize: '1.2rem',
+  fontWeight: 800,
+  color: 'white',
+  marginBottom: '1.5rem',
+  fontFamily: 'var(--font-mono)',
+  boxShadow: '0 4px 20px rgba(0,212,255,0.2)',
+  overflow: 'hidden',
+  position: 'relative',
+  flexShrink: 0,
+}}>
+  {!photoLoaded && (
+    <span style={{ position: 'absolute', zIndex: 1 }}>{initials}</span>
+  )}
+  <Image
+    src={photo}
+    alt={name}
+    fill
+    style={{
+      objectFit: 'cover',
+      objectPosition: 'center 15%', // 👈 baja el encuadre para mostrar torso y brazos
+      opacity: photoLoaded ? 1 : 0,
+      transition: 'opacity 0.3s',
+    }}
+    onLoad={() => setPhotoLoaded(true)}
+    onError={() => setPhotoLoaded(false)}
+  />
+</div>
 
       <div style={{ fontSize: '1.15rem', fontWeight: 700, marginBottom: '0.3rem' }}>
         {name}
@@ -191,7 +199,6 @@ function TeamCard({ initials, name, role, desc, gradient, photo }: {
       <p style={{ fontSize: '0.86rem', color: 'var(--muted2)', lineHeight: 1.65 }}>
         {desc}
       </p>
-
     </div>
   )
 }
