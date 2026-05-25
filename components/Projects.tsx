@@ -4,11 +4,11 @@
 const projects = [
   {
     num: '01', featured: true,
-    status: 'done', statusLabel: 'Realizado · Paraguay Pork',
-    name: 'Pygs System',
-    desc: 'Sistema integral de gestión para la industria porcina. Administración de inventario, trazabilidad de animales, reportes productivos y control de costos en tiempo real.',
-    tech: ['React', 'Node.js', 'MongoDB', 'Express', 'Vercel'],
-    link: '#', linkLabel: 'Ver proyecto →', icon: '🐖',
+    status: 'done', statusLabel: 'Realizado · Linkea',
+    name: 'GestPy',
+    desc: 'Sistema SaaS de gestión empresarial para el mercado paraguayo. Módulos de compras, ventas, stock, caja, bancos y reportes con auditoría completa. Multi-empresa, planes por suscripción y onboarding guiado.',
+    tech: ['Next.js 15', 'Prisma', 'Supabase', 'Tailwind', 'Vercel'],
+    link: 'https://sistema-gestion-rose.vercel.app', linkLabel: 'Ver proyecto →', icon: '📊',
   },
   {
     num: '02', featured: false,
