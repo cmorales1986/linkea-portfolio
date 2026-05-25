@@ -1,0 +1,1919 @@
+This file is a merged representation of the entire codebase, combined into a single document by Repomix.
+
+<file_summary>
+This section contains a summary of this file.
+
+<purpose>
+This file contains a packed representation of the entire repository's contents.
+It is designed to be easily consumable by AI systems for analysis, code review,
+or other automated processes.
+</purpose>
+
+<file_format>
+The content is organized as follows:
+1. This summary section
+2. Repository information
+3. Directory structure
+4. Repository files (if enabled)
+5. Multiple file entries, each consisting of:
+  - File path as an attribute
+  - Full contents of the file
+</file_format>
+
+<usage_guidelines>
+- This file should be treated as read-only. Any changes should be made to the
+  original repository files, not this packed version.
+- When processing this file, use the file path to distinguish
+  between different files in the repository.
+- Be aware that this file may contain sensitive information. Handle it with
+  the same level of security as you would the original repository.
+</usage_guidelines>
+
+<notes>
+- Some files may have been excluded based on .gitignore rules and Repomix's configuration
+- Binary files are not included in this packed representation. Please refer to the Repository Structure section for a complete list of file paths, including binary files
+- Files matching patterns in .gitignore are excluded
+- Files matching default ignore patterns are excluded
+- Files are sorted by Git change count (files with more changes are at the bottom)
+</notes>
+
+</file_summary>
+
+<directory_structure>
+.gitignore
+app/favicon.ico
+app/globals.css
+app/layout.tsx
+app/page.tsx
+components/Contact.tsx
+components/Footer.tsx
+components/Hero.tsx
+components/Navbar.tsx
+components/Projects.tsx
+components/Services.tsx
+components/Team.tsx
+eslint.config.mjs
+next.config.ts
+package.json
+postcss.config.mjs
+public/file.svg
+public/globe.svg
+public/logos/ChatGPT Image 15 abr 2026, 12_50_39 p.m..png
+public/logos/LINKEA_3D_transparent.png
+public/logos/LINKEA_app_icon.png
+public/logos/LINKEA_favicon.png
+public/logos/LINKEA_isotipo_transparent.png
+public/logos/WhatsApp Image 2026-04-15 at 12.53.43.jpeg
+public/next.svg
+public/vercel.svg
+public/window.svg
+README.md
+tsconfig.json
+</directory_structure>
+
+<files>
+This section contains the contents of the repository's files.
+
+<file path=".gitignore">
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# env files (can opt-in for committing if needed)
+.env*
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+</file>
+
+<file path="eslint.config.mjs">
+import { defineConfig, globalIgnores } from "eslint/config";
+import nextVitals from "eslint-config-next/core-web-vitals";
+import nextTs from "eslint-config-next/typescript";
+
+const eslintConfig = defineConfig([
+  ...nextVitals,
+  ...nextTs,
+  // Override default ignores of eslint-config-next.
+  globalIgnores([
+    // Default ignores of eslint-config-next:
+    ".next/**",
+    "out/**",
+    "build/**",
+    "next-env.d.ts",
+  ]),
+]);
+
+export default eslintConfig;
+</file>
+
+<file path="next.config.ts">
+import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
+  /* config options here */
+};
+
+export default nextConfig;
+</file>
+
+<file path="postcss.config.mjs">
+const config = {
+  plugins: {
+    "@tailwindcss/postcss": {},
+  },
+};
+
+export default config;
+</file>
+
+<file path="public/file.svg">
+<svg fill="none" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M14.5 13.5V5.41a1 1 0 0 0-.3-.7L9.8.29A1 1 0 0 0 9.08 0H1.5v13.5A2.5 2.5 0 0 0 4 16h8a2.5 2.5 0 0 0 2.5-2.5m-1.5 0v-7H8v-5H3v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1M9.5 5V2.12L12.38 5zM5.13 5h-.62v1.25h2.12V5zm-.62 3h7.12v1.25H4.5zm.62 3h-.62v1.25h7.12V11z" clip-rule="evenodd" fill="#666" fill-rule="evenodd"/></svg>
+</file>
+
+<file path="public/globe.svg">
+<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M10.27 14.1a6.5 6.5 0 0 0 3.67-3.45q-1.24.21-2.7.34-.31 1.83-.97 3.1M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m.48-1.52a7 7 0 0 1-.96 0H7.5a4 4 0 0 1-.84-1.32q-.38-.89-.63-2.08a40 40 0 0 0 3.92 0q-.25 1.2-.63 2.08a4 4 0 0 1-.84 1.31zm2.94-4.76q1.66-.15 2.95-.43a7 7 0 0 0 0-2.58q-1.3-.27-2.95-.43a18 18 0 0 1 0 3.44m-1.27-3.54a17 17 0 0 1 0 3.64 39 39 0 0 1-4.3 0 17 17 0 0 1 0-3.64 39 39 0 0 1 4.3 0m1.1-1.17q1.45.13 2.69.34a6.5 6.5 0 0 0-3.67-3.44q.65 1.26.98 3.1M8.48 1.5l.01.02q.41.37.84 1.31.38.89.63 2.08a40 40 0 0 0-3.92 0q.25-1.2.63-2.08a4 4 0 0 1 .85-1.32 7 7 0 0 1 .96 0m-2.75.4a6.5 6.5 0 0 0-3.67 3.44 29 29 0 0 1 2.7-.34q.31-1.83.97-3.1M4.58 6.28q-1.66.16-2.95.43a7 7 0 0 0 0 2.58q1.3.27 2.95.43a18 18 0 0 1 0-3.44m.17 4.71q-1.45-.12-2.69-.34a6.5 6.5 0 0 0 3.67 3.44q-.65-1.27-.98-3.1" fill="#666"/></g><defs><clipPath id="a"><path fill="#fff" d="M0 0h16v16H0z"/></clipPath></defs></svg>
+</file>
+
+<file path="public/next.svg">
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 394 80"><path fill="#000" d="M262 0h68.5v12.7h-27.2v66.6h-13.6V12.7H262V0ZM149 0v12.7H94v20.4h44.3v12.6H94v21h55v12.6H80.5V0h68.7zm34.3 0h-17.8l63.8 79.4h17.9l-32-39.7 32-39.6h-17.9l-23 28.6-23-28.6zm18.3 56.7-9-11-27.1 33.7h17.8l18.3-22.7z"/><path fill="#000" d="M81 79.3 17 0H0v79.3h13.6V17l50.2 62.3H81Zm252.6-.4c-1 0-1.8-.4-2.5-1s-1.1-1.6-1.1-2.6.3-1.8 1-2.5 1.6-1 2.6-1 1.8.3 2.5 1a3.4 3.4 0 0 1 .6 4.3 3.7 3.7 0 0 1-3 1.8zm23.2-33.5h6v23.3c0 2.1-.4 4-1.3 5.5a9.1 9.1 0 0 1-3.8 3.5c-1.6.8-3.5 1.3-5.7 1.3-2 0-3.7-.4-5.3-1s-2.8-1.8-3.7-3.2c-.9-1.3-1.4-3-1.4-5h6c.1.8.3 1.6.7 2.2s1 1.2 1.6 1.5c.7.4 1.5.5 2.4.5 1 0 1.8-.2 2.4-.6a4 4 0 0 0 1.6-1.8c.3-.8.5-1.8.5-3V45.5zm30.9 9.1a4.4 4.4 0 0 0-2-3.3 7.5 7.5 0 0 0-4.3-1.1c-1.3 0-2.4.2-3.3.5-.9.4-1.6 1-2 1.6a3.5 3.5 0 0 0-.3 4c.3.5.7.9 1.3 1.2l1.8 1 2 .5 3.2.8c1.3.3 2.5.7 3.7 1.2a13 13 0 0 1 3.2 1.8 8.1 8.1 0 0 1 3 6.5c0 2-.5 3.7-1.5 5.1a10 10 0 0 1-4.4 3.5c-1.8.8-4.1 1.2-6.8 1.2-2.6 0-4.9-.4-6.8-1.2-2-.8-3.4-2-4.5-3.5a10 10 0 0 1-1.7-5.6h6a5 5 0 0 0 3.5 4.6c1 .4 2.2.6 3.4.6 1.3 0 2.5-.2 3.5-.6 1-.4 1.8-1 2.4-1.7a4 4 0 0 0 .8-2.4c0-.9-.2-1.6-.7-2.2a11 11 0 0 0-2.1-1.4l-3.2-1-3.8-1c-2.8-.7-5-1.7-6.6-3.2a7.2 7.2 0 0 1-2.4-5.7 8 8 0 0 1 1.7-5 10 10 0 0 1 4.3-3.5c2-.8 4-1.2 6.4-1.2 2.3 0 4.4.4 6.2 1.2 1.8.8 3.2 2 4.3 3.4 1 1.4 1.5 3 1.5 5h-5.8z"/></svg>
+</file>
+
+<file path="public/vercel.svg">
+<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1155 1000"><path d="m577.3 0 577.4 1000H0z" fill="#fff"/></svg>
+</file>
+
+<file path="public/window.svg">
+<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M1.5 2.5h13v10a1 1 0 0 1-1 1h-11a1 1 0 0 1-1-1zM0 1h16v11.5a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 0 12.5zm3.75 4.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5M7 4.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0m1.75.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5" fill="#666"/></svg>
+</file>
+
+<file path="README.md">
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+
+## Getting Started
+
+First, run the development server:
+
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+
+## Learn More
+
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+</file>
+
+<file path="tsconfig.json">
+{
+  "compilerOptions": {
+    "target": "ES2017",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "react-jsx",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": ["./*"]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    ".next/dev/types/**/*.ts",
+    "**/*.mts"
+  ],
+  "exclude": ["node_modules"]
+}
+</file>
+
+<file path="app/layout.tsx">
+import type { Metadata } from 'next'
+import { Outfit, IBM_Plex_Mono } from 'next/font/google'
+import './globals.css'
+
+const outfit = Outfit({
+  subsets: ['latin'],
+  variable: '--font-outfit',
+  weight: ['400', '500', '600', '700', '800'],
+})
+
+const ibmPlexMono = IBM_Plex_Mono({
+  subsets: ['latin'],
+  variable: '--font-mono',
+  weight: ['400', '700'],
+})
+
+export const metadata: Metadata = {
+  title: 'Linkea – Innovación a la medida',
+  description: 'Equipo de desarrollo de software en Paraguay. Sistemas a medida, apps web e infraestructura tecnológica.',
+  icons: {
+    icon: '/logos/LINKEA_favicon.png',
+  },
+}
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  return (
+    <html lang="es">
+      <body className={`${outfit.variable} ${ibmPlexMono.variable}`}>
+        {children}
+      </body>
+    </html>
+  )
+}
+</file>
+
+<file path="app/page.tsx">
+import Navbar from '@/components/Navbar'
+import Hero from '@/components/Hero'
+import Team from '@/components/Team'
+import Projects from '@/components/Projects'
+import Services from '@/components/Services'
+import Contact from '@/components/Contact'
+import Footer from '@/components/Footer'
+
+export default function Home() {
+  return (
+    <main>
+      <Navbar />
+      <Hero />
+      <Team />
+      <Projects />
+      <Services />
+      <Contact />
+      <Footer />
+    </main>
+  )
+}
+</file>
+
+<file path="components/Contact.tsx">
+'use client'
+
+export default function Contact() {
+  return (
+    <section id="contacto" className="contact-section">
+      <div style={{ maxWidth: '680px', margin: '0 auto', textAlign: 'center' }}>
+
+        <div style={{
+          fontFamily: 'var(--font-mono)',
+          fontSize: '0.7rem',
+          color: 'var(--accent)',
+          letterSpacing: '0.25em',
+          textTransform: 'uppercase',
+          marginBottom: '0.8rem',
+        }}>
+        </div>
+
+        <h2 style={{
+          fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)',
+          fontWeight: 800,
+          letterSpacing: '-0.02em',
+          marginBottom: '1rem',
+        }}>
+          Hablemos
+        </h2>
+
+        <p style={{
+          color: 'var(--muted2)',
+          lineHeight: 1.75,
+          marginBottom: '3rem',
+          fontSize: '0.98rem',
+        }}>
+          ¿Tenés un proyecto en mente? Contanos de qué se trata
+          y te respondemos a la brevedad.
+        </p>
+
+        <div style={{
+          background: 'var(--card)',
+          border: '1px solid var(--border)',
+          padding: '2.5rem',
+          borderRadius: '6px',
+          textAlign: 'left',
+          boxShadow: '0 20px 60px rgba(0,0,0,0.4)',
+        }}>
+
+          {/* Fila nombre + email */}
+          <div className="form-row" style={{
+            display: 'grid',
+            gridTemplateColumns: '1fr 1fr',
+            gap: '1rem',
+            marginBottom: '1rem',
+          }}>
+            <FormField label="Nombre" type="text" placeholder="Tu nombre" />
+            <FormField label="Email" type="email" placeholder="correo@empresa.com" />
+          </div>
+
+          <FormField label="Empresa" type="text" placeholder="Nombre de tu empresa (opcional)" />
+
+          {/* Select */}
+          <div style={{ marginBottom: '1rem' }}>
+            <label style={{
+              display: 'block',
+              fontFamily: 'var(--font-mono)',
+              fontSize: '0.68rem',
+              color: 'var(--muted)',
+              letterSpacing: '0.12em',
+              textTransform: 'uppercase' as const,
+              marginBottom: '0.5rem',
+            }}>
+              Servicio de interés
+            </label>
+            <select
+              style={{
+                width: '100%',
+                background: 'var(--bg)',
+                border: '1px solid var(--border)',
+                color: 'var(--text)',
+                padding: '0.8rem 1rem',
+                borderRadius: '3px',
+                fontFamily: 'var(--font-outfit), sans-serif',
+                fontSize: '0.88rem',
+                outline: 'none',
+                appearance: 'none' as const,
+                cursor: 'pointer',
+              }}
+              onFocus={e => {
+                e.currentTarget.style.borderColor = 'var(--accent)'
+                e.currentTarget.style.boxShadow = '0 0 0 3px rgba(0,212,255,0.08)'
+              }}
+              onBlur={e => {
+                e.currentTarget.style.borderColor = 'var(--border)'
+                e.currentTarget.style.boxShadow = 'none'
+              }}
+            >
+              <option value="">Seleccioná un servicio...</option>
+              <option>Desarrollo a medida</option>
+              <option>Diseño UI/UX</option>
+              <option>Administración de BD</option>
+              <option>Infraestructura & Redes</option>
+              <option>Apps Web</option>
+              <option>Soporte Técnico</option>
+            </select>
+          </div>
+
+          {/* Textarea */}
+          <div style={{ marginBottom: '1.5rem' }}>
+            <label style={{
+              display: 'block',
+              fontFamily: 'var(--font-mono)',
+              fontSize: '0.68rem',
+              color: 'var(--muted)',
+              letterSpacing: '0.12em',
+              textTransform: 'uppercase' as const,
+              marginBottom: '0.5rem',
+            }}>
+              Mensaje
+            </label>
+            <textarea
+              placeholder="Contanos sobre tu proyecto..."
+              rows={4}
+              style={{
+                width: '100%',
+                background: 'var(--bg)',
+                border: '1px solid var(--border)',
+                color: 'var(--text)',
+                padding: '0.8rem 1rem',
+                borderRadius: '3px',
+                fontFamily: 'var(--font-outfit), sans-serif',
+                fontSize: '0.88rem',
+                outline: 'none',
+                resize: 'vertical' as const,
+                minHeight: '120px',
+              }}
+              onFocus={e => {
+                e.currentTarget.style.borderColor = 'var(--accent)'
+                e.currentTarget.style.boxShadow = '0 0 0 3px rgba(0,212,255,0.08)'
+              }}
+              onBlur={e => {
+                e.currentTarget.style.borderColor = 'var(--border)'
+                e.currentTarget.style.boxShadow = 'none'
+              }}
+            />
+          </div>
+
+          {/* Submit */}
+          <button
+            style={{
+              width: '100%',
+              padding: '1rem',
+              background: 'linear-gradient(135deg, var(--accent2), var(--accent))',
+              color: 'var(--bg)',
+              border: 'none',
+              borderRadius: '3px',
+              fontFamily: 'var(--font-outfit), sans-serif',
+              fontWeight: 700,
+              fontSize: '0.95rem',
+              cursor: 'pointer',
+              letterSpacing: '0.05em',
+              boxShadow: '0 4px 24px rgba(0,212,255,0.2)',
+              transition: 'all 0.25s',
+            }}
+            onMouseEnter={e => {
+              e.currentTarget.style.transform = 'translateY(-2px)'
+              e.currentTarget.style.boxShadow = '0 8px 32px rgba(0,212,255,0.4)'
+            }}
+            onMouseLeave={e => {
+              e.currentTarget.style.transform = 'translateY(0)'
+              e.currentTarget.style.boxShadow = '0 4px 24px rgba(0,212,255,0.2)'
+            }}
+          >
+            Enviar mensaje →
+          </button>
+
+        </div>
+      </div>
+
+      <style>{`
+        .contact-section {
+          position: relative;
+          zIndex: 1;
+          padding: 6rem 4rem;
+          background: var(--bg);
+        }
+        @media (max-width: 768px) {
+          .contact-section {
+            padding: 4rem 1.5rem !important;
+          }
+          .form-row {
+            grid-template-columns: 1fr !important;
+          }
+        }
+      `}</style>
+
+    </section>
+  )
+}
+
+function FormField({ label, type, placeholder }: {
+  label: string
+  type: string
+  placeholder: string
+}) {
+  return (
+    <div style={{ marginBottom: '1rem' }}>
+      <label style={{
+        display: 'block',
+        fontFamily: 'var(--font-mono)',
+        fontSize: '0.68rem',
+        color: 'var(--muted)',
+        letterSpacing: '0.12em',
+        textTransform: 'uppercase' as const,
+        marginBottom: '0.5rem',
+      }}>
+        {label}
+      </label>
+      <input
+        type={type}
+        placeholder={placeholder}
+        style={{
+          width: '100%',
+          background: 'var(--bg)',
+          border: '1px solid var(--border)',
+          color: 'var(--text)',
+          padding: '0.8rem 1rem',
+          borderRadius: '3px',
+          fontFamily: 'var(--font-outfit), sans-serif',
+          fontSize: '0.88rem',
+          outline: 'none',
+          transition: 'border-color 0.2s, box-shadow 0.2s',
+        }}
+        onFocus={e => {
+          e.currentTarget.style.borderColor = 'var(--accent)'
+          e.currentTarget.style.boxShadow = '0 0 0 3px rgba(0,212,255,0.08)'
+        }}
+        onBlur={e => {
+          e.currentTarget.style.borderColor = 'var(--border)'
+          e.currentTarget.style.boxShadow = 'none'
+        }}
+      />
+    </div>
+  )
+}
+</file>
+
+<file path="components/Footer.tsx">
+'use client'
+
+import Image from 'next/image'
+
+export default function Footer() {
+  return (
+    <footer className="footer">
+
+      <Image
+        src="/logos/LINKEA_3D_transparent.png"
+        alt="Linkea"
+        width={100}
+        height={34}
+        style={{
+          objectFit: 'contain',
+          filter: 'drop-shadow(0 0 6px rgba(0,212,255,0.25))',
+        }}
+      />
+
+      <div style={{
+        fontSize: '0.75rem',
+        color: 'var(--muted)',
+        fontFamily: 'var(--font-mono)',
+      }}>
+        © 2025 Linkea. Asunción, Paraguay.
+      </div>
+
+      <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap', justifyContent: 'center' }}>
+        {[
+          { label: 'linkea.com.py', href: 'https://linkea.com.py' },
+          { label: 'GitHub', href: '#' },
+          { label: 'LinkedIn', href: '#' },
+        ].map(({ label, href }) => ( <a
+          
+            key={label}
+            href={href}
+            target={href.startsWith('http') ? '_blank' : undefined}
+            style={{
+              color: 'var(--muted)',
+              textDecoration: 'none',
+              fontSize: '0.78rem',
+              fontFamily: 'var(--font-mono)',
+              transition: 'color 0.2s',
+            }}
+            onMouseEnter={e => (e.currentTarget.style.color = 'var(--accent)')}
+            onMouseLeave={e => (e.currentTarget.style.color = 'var(--muted)')}
+          >
+            {label}
+          </a>
+        ))}
+      </div>
+
+      <style>{`
+        .footer {
+          position: relative;
+          z-index: 1;
+          border-top: 1px solid var(--border);
+          padding: 2rem 4rem;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          background: var(--bg2);
+          flex-wrap: wrap;
+          gap: 1rem;
+        }
+        @media (max-width: 768px) {
+          .footer {
+            flex-direction: column !important;
+            align-items: center !important;
+            text-align: center !important;
+            padding: 2rem 1.5rem !important;
+          }
+        }
+      `}</style>
+
+    </footer>
+  )
+}
+</file>
+
+<file path="components/Hero.tsx">
+'use client'
+
+import Image from 'next/image'
+import { useEffect, useRef } from 'react'
+
+export default function Hero() {
+  const canvasRef = useRef<HTMLCanvasElement>(null)
+
+  useEffect(() => {
+    const canvas = canvasRef.current
+    if (!canvas) return
+    const ctx = canvas.getContext('2d')
+    if (!ctx) return
+
+    canvas.width = window.innerWidth
+    canvas.height = window.innerHeight
+
+    const fontSize = 14
+    const cols = Math.floor(canvas.width / fontSize)
+    const drops: number[] = Array(cols).fill(1)
+
+    const chars = 'アイウエオカキクケコサシスセソタチツテトナニヌネノ0123456789ABCDEF<>{}[]|/\\=+-*'
+
+    const draw = () => {
+      ctx.fillStyle = 'rgba(6, 9, 15, 0.05)'
+      ctx.fillRect(0, 0, canvas.width, canvas.height)
+
+      for (let i = 0; i < drops.length; i++) {
+        const char = chars[Math.floor(Math.random() * chars.length)]
+        const x = i * fontSize
+
+        if (drops[i] * fontSize < canvas.height * 0.3) {
+          ctx.fillStyle = 'rgba(0, 212, 255, 0.6)'
+        } else {
+          ctx.fillStyle = 'rgba(59, 94, 255, 0.15)'
+        }
+
+        ctx.font = `${fontSize}px monospace`
+        ctx.fillText(char, x, drops[i] * fontSize)
+
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+          drops[i] = 0
+        }
+        drops[i]++
+      }
+    }
+
+    const interval = setInterval(draw, 50)
+
+    const handleResize = () => {
+      canvas.width = window.innerWidth
+      canvas.height = window.innerHeight
+    }
+    window.addEventListener('resize', handleResize)
+
+    return () => {
+      clearInterval(interval)
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [])
+
+  return (
+    <section id="hero" className="hero-section">
+
+      {/* Canvas Matrix */}
+      <canvas
+        ref={canvasRef}
+        style={{
+          position: 'absolute',
+          inset: 0,
+          opacity: 0.4,
+          pointerEvents: 'none',
+        }}
+      />
+
+      {/* Gradient overlay */}
+      <div style={{
+        position: 'absolute',
+        inset: 0,
+        background: 'radial-gradient(ellipse 70% 80% at 50% 50%, rgba(6,9,15,0.6) 0%, rgba(6,9,15,0.95) 100%)',
+        pointerEvents: 'none',
+      }} />
+
+      {/* LEFT — Texto */}
+      <div style={{ position: 'relative', zIndex: 1 }}>
+
+        <div style={{
+          display: 'inline-flex',
+          alignItems: 'center',
+          gap: '0.6rem',
+          background: 'rgba(0,212,255,0.06)',
+          border: '1px solid rgba(0,212,255,0.18)',
+          padding: '0.4rem 1.1rem',
+          borderRadius: '100px',
+          fontFamily: 'var(--font-mono)',
+          fontSize: '0.7rem',
+          color: 'var(--accent)',
+          letterSpacing: '0.12em',
+          marginBottom: '2rem',
+          textTransform: 'uppercase' as const,
+        }}>
+          <span style={{
+            width: '7px', height: '7px',
+            background: 'var(--green)',
+            borderRadius: '50%',
+            boxShadow: '0 0 10px var(--green)',
+            animation: 'pulse 2s infinite',
+            flexShrink: 0,
+          }} />
+          Disponibles para nuevos proyectos
+        </div>
+
+        <h1 style={{
+          fontSize: 'clamp(2.8rem, 5.5vw, 5rem)',
+          fontWeight: 800,
+          lineHeight: 1.0,
+          letterSpacing: '-0.03em',
+          marginBottom: '1.5rem',
+        }}>
+          Soluciones<br />
+          <span style={{
+            color: 'transparent',
+            WebkitTextStroke: '1.5px rgba(0,212,255,0.45)',
+          }}>digitales</span><br />
+          <span style={{ color: 'var(--accent)' }}>a tu medida.</span>
+        </h1>
+
+        <p style={{
+          fontSize: '1.05rem',
+          color: 'var(--muted2)',
+          lineHeight: 1.75,
+          maxWidth: '440px',
+          marginBottom: '2.5rem',
+        }}>
+          Somos un equipo de tres especialistas en Paraguay construyendo sistemas,
+          apps web e infraestructura tecnológica que escalan con tu negocio.
+        </p>
+
+        <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', flexWrap: 'wrap' as const }}>
+          
+           <a href="#proyectos"
+            style={{
+              background: 'linear-gradient(135deg, var(--accent2), var(--accent))',
+              color: 'var(--bg)',
+              padding: '0.9rem 2.2rem',
+              borderRadius: '2px',
+              fontWeight: 700,
+              fontSize: '0.88rem',
+              letterSpacing: '0.05em',
+              textDecoration: 'none',
+              boxShadow: '0 4px 24px rgba(0,212,255,0.25)',
+              transition: 'all 0.25s',
+            }}
+            onMouseEnter={e => {
+              e.currentTarget.style.transform = 'translateY(-2px)'
+              e.currentTarget.style.boxShadow = '0 8px 32px rgba(0,212,255,0.4)'
+            }}
+            onMouseLeave={e => {
+              e.currentTarget.style.transform = 'translateY(0)'
+              e.currentTarget.style.boxShadow = '0 4px 24px rgba(0,212,255,0.25)'
+            }}
+          >
+            Ver proyectos
+          </a>
+          
+           <a href="#contacto"
+            style={{
+              color: 'var(--muted2)',
+              padding: '0.9rem 2rem',
+              border: '1px solid var(--border2)',
+              borderRadius: '2px',
+              fontFamily: 'var(--font-mono)',
+              fontSize: '0.75rem',
+              letterSpacing: '0.05em',
+              textDecoration: 'none',
+              transition: 'all 0.25s',
+            }}
+            onMouseEnter={e => {
+              e.currentTarget.style.borderColor = 'var(--accent)'
+              e.currentTarget.style.color = 'var(--accent)'
+            }}
+            onMouseLeave={e => {
+              e.currentTarget.style.borderColor = 'var(--border2)'
+              e.currentTarget.style.color = 'var(--muted2)'
+            }}
+          >
+            Contactar →
+          </a>
+        </div>
+      </div>
+
+      {/* RIGHT — Logo + Stats */}
+      <div className="hero-right" style={{
+        position: 'relative',
+        zIndex: 1,
+        display: 'flex',
+        flexDirection: 'column' as const,
+        alignItems: 'center',
+        gap: '2rem',
+      }}>
+
+        <div style={{
+          position: 'relative',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}>
+          <div style={{
+            position: 'absolute',
+            width: '320px', height: '320px',
+            background: 'radial-gradient(circle, rgba(0,212,255,0.08) 0%, transparent 70%)',
+            borderRadius: '50%',
+            animation: 'breathe 4s ease-in-out infinite',
+          }} />
+          <Image
+            src="/logos/LINKEA_3D_transparent.png"
+            alt="Linkea"
+            width={280}
+            height={280}
+            className="hero-logo-img"
+            style={{
+              objectFit: 'contain',
+              filter: 'drop-shadow(0 0 30px rgba(0,212,255,0.3)) drop-shadow(0 0 60px rgba(59,94,255,0.2))',
+              animation: 'float 6s ease-in-out infinite',
+              position: 'relative',
+              zIndex: 1,
+            }}
+            priority
+          />
+        </div>
+
+        {/* Stats */}
+        <div className="stats-row" style={{ display: 'flex', gap: '1rem' }}>
+          {[
+            { num: '3+', label: 'Años' },
+            { num: '6+', label: 'Proyectos' },
+            { num: 'PY', label: 'Paraguay' },
+          ].map(({ num, label }) => (
+            <div
+              key={label}
+              style={{
+                background: 'var(--card)',
+                border: '1px solid var(--border)',
+                padding: '1.2rem 1.5rem',
+                borderRadius: '4px',
+                textAlign: 'center' as const,
+                minWidth: '90px',
+                transition: 'border-color 0.3s',
+              }}
+              onMouseEnter={e => (e.currentTarget.style.borderColor = 'var(--accent)')}
+              onMouseLeave={e => (e.currentTarget.style.borderColor = 'var(--border)')}
+            >
+              <span style={{
+                fontFamily: 'var(--font-mono)',
+                fontSize: '1.7rem',
+                color: 'var(--accent)',
+                fontWeight: 700,
+                display: 'block',
+                lineHeight: 1,
+                marginBottom: '0.3rem',
+              }}>{num}</span>
+              <span style={{
+                fontSize: '0.65rem',
+                color: 'var(--muted)',
+                textTransform: 'uppercase',
+                letterSpacing: '0.12em',
+                fontFamily: 'var(--font-mono)',
+              }}>{label}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <style>{`
+        @keyframes pulse {
+          0%, 100% { opacity: 1; transform: scale(1); }
+          50% { opacity: 0.6; transform: scale(1.3); }
+        }
+        @keyframes breathe {
+          0%, 100% { transform: scale(1); opacity: 0.8; }
+          50% { transform: scale(1.1); opacity: 1; }
+        }
+        @keyframes float {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-12px); }
+        }
+        .hero-section {
+          position: relative;
+          min-height: 100vh;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          align-items: center;
+          padding: 7rem 4rem 4rem;
+          overflow: hidden;
+          gap: 4rem;
+        }
+        @media (max-width: 768px) {
+          .hero-section {
+            grid-template-columns: 1fr !important;
+            padding: 6rem 1.5rem 3rem !important;
+            gap: 2rem !important;
+          }
+          .hero-right {
+            order: -1;
+          }
+          .hero-logo-img {
+            width: 180px !important;
+            height: 180px !important;
+          }
+          .stats-row {
+            gap: 0.5rem !important;
+          }
+        }
+      `}</style>
+
+    </section>
+  )
+}
+</file>
+
+<file path="components/Navbar.tsx">
+'use client'
+
+import Image from 'next/image'
+import Link from 'next/link'
+import { useEffect, useState } from 'react'
+
+export default function Navbar() {
+  const [scrolled, setScrolled] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 60)
+    window.addEventListener('scroll', onScroll)
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  const links = ['Equipo', 'Proyectos', 'Servicios', 'Contacto']
+
+  return (
+    <>
+      <nav style={{
+        position: 'fixed',
+        top: 0, left: 0, right: 0,
+        zIndex: 100,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        padding: scrolled ? '0.7rem 1.5rem' : '1rem 1.5rem',
+        background: 'rgba(6,9,15,0.85)',
+        backdropFilter: 'blur(20px)',
+        borderBottom: '1px solid var(--border)',
+        transition: 'padding 0.3s',
+      }}>
+
+        {/* Logo */}
+        <Link href="#hero" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
+          <Image
+            src="/logos/LINKEA_3D_transparent.png"
+            alt="Linkea"
+            width={110}
+            height={36}
+            style={{ objectFit: 'contain', filter: 'drop-shadow(0 0 8px rgba(0,212,255,0.3))' }}
+            priority
+          />
+        </Link>
+
+        {/* Links desktop */}
+        <ul style={{
+          display: 'flex',
+          gap: '2.5rem',
+          listStyle: 'none',
+          // Oculto en mobile via JS
+        }} className="nav-links-desktop">
+          {links.map((item) => (
+            <li key={item}>
+              <Link
+                href={`#${item.toLowerCase()}`}
+                style={{
+                  color: 'var(--muted)',
+                  textDecoration: 'none',
+                  fontSize: '0.82rem',
+                  letterSpacing: '0.1em',
+                  textTransform: 'uppercase',
+                  fontFamily: 'var(--font-mono)',
+                  transition: 'color 0.2s',
+                }}
+                onMouseEnter={e => (e.currentTarget.style.color = 'var(--accent)')}
+                onMouseLeave={e => (e.currentTarget.style.color = 'var(--muted)')}
+              >
+                {item}
+              </Link>
+            </li>
+          ))}
+        </ul>
+
+        {/* CTA desktop */}
+        <Link
+          href="#contacto"
+          className="nav-cta-desktop"
+          style={{
+            background: 'transparent',
+            border: '1px solid var(--accent)',
+            color: 'var(--accent)',
+            padding: '0.55rem 1.5rem',
+            borderRadius: '2px',
+            fontFamily: 'var(--font-mono)',
+            fontSize: '0.75rem',
+            letterSpacing: '0.08em',
+            textDecoration: 'none',
+            transition: 'all 0.25s',
+          }}
+          onMouseEnter={e => {
+            e.currentTarget.style.background = 'var(--accent)'
+            e.currentTarget.style.color = 'var(--bg)'
+          }}
+          onMouseLeave={e => {
+            e.currentTarget.style.background = 'transparent'
+            e.currentTarget.style.color = 'var(--accent)'
+          }}
+        >
+          Hablemos →
+        </Link>
+
+        {/* Hamburger mobile */}
+        <button
+          className="hamburger"
+          onClick={() => setMenuOpen(!menuOpen)}
+          style={{
+            background: 'transparent',
+            border: '1px solid var(--border)',
+            color: 'var(--text)',
+            padding: '0.5rem 0.75rem',
+            borderRadius: '4px',
+            cursor: 'pointer',
+            fontSize: '1.2rem',
+            lineHeight: 1,
+          }}
+        >
+          {menuOpen ? '✕' : '☰'}
+        </button>
+
+      </nav>
+
+      {/* Mobile menu */}
+      {menuOpen && (
+        <div style={{
+          position: 'fixed',
+          top: '60px', left: 0, right: 0,
+          zIndex: 99,
+          background: 'rgba(6,9,15,0.97)',
+          backdropFilter: 'blur(20px)',
+          borderBottom: '1px solid var(--border)',
+          padding: '1.5rem',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '0',
+        }}>
+          {links.map((item) => (
+            <Link
+              key={item}
+              href={`#${item.toLowerCase()}`}
+              onClick={() => setMenuOpen(false)}
+              style={{
+                color: 'var(--muted2)',
+                textDecoration: 'none',
+                fontSize: '1rem',
+                letterSpacing: '0.1em',
+                textTransform: 'uppercase',
+                fontFamily: 'var(--font-mono)',
+                padding: '1rem 0',
+                borderBottom: '1px solid var(--border)',
+                transition: 'color 0.2s',
+              }}
+            >
+              {item}
+            </Link>
+          ))}
+          <Link
+            href="#contacto"
+            onClick={() => setMenuOpen(false)}
+            style={{
+              marginTop: '1rem',
+              textAlign: 'center',
+              background: 'linear-gradient(135deg, var(--accent2), var(--accent))',
+              color: 'var(--bg)',
+              padding: '0.85rem',
+              borderRadius: '2px',
+              fontFamily: 'var(--font-mono)',
+              fontSize: '0.85rem',
+              fontWeight: 700,
+              textDecoration: 'none',
+              letterSpacing: '0.08em',
+            }}
+          >
+            Hablemos →
+          </Link>
+        </div>
+      )}
+
+      {/* CSS para mostrar/ocultar elementos */}
+      <style>{`
+        @media (max-width: 768px) {
+          .nav-links-desktop { display: none !important; }
+          .nav-cta-desktop { display: none !important; }
+          .hamburger { display: block !important; }
+        }
+        @media (min-width: 769px) {
+          .hamburger { display: none !important; }
+        }
+      `}</style>
+    </>
+  )
+}
+</file>
+
+<file path="components/Projects.tsx">
+/* eslint-disable @typescript-eslint/no-explicit-any */
+'use client'
+
+const projects = [
+  {
+    num: '01', featured: true,
+    status: 'done', statusLabel: 'Realizado · Paraguay Pork',
+    name: 'Pygs System',
+    desc: 'Sistema integral de gestión para la industria porcina. Administración de inventario, trazabilidad de animales, reportes productivos y control de costos en tiempo real.',
+    tech: ['React', 'Node.js', 'MongoDB', 'Express', 'Vercel'],
+    link: '#', linkLabel: 'Ver proyecto →', icon: '🐖',
+  },
+  {
+    num: '02', featured: false,
+    status: 'done', statusLabel: 'Realizado',
+    name: 'Pygs Feed',
+    desc: 'Plataforma de gestión de alimentación y nutrición para granjas porcinas. Control de raciones, consumo y optimización de costos alimentarios.',
+    tech: ['Next.js', 'MongoDB', 'Tailwind'],
+    link: '#', linkLabel: 'Ver proyecto →',
+  },
+  {
+    num: '03', featured: false,
+    status: 'done', statusLabel: 'Realizado',
+    name: 'Linkea Web',
+    desc: 'Sitio institucional y portfolio de servicios tecnológicos. Diseño orientado a conversión y captación de clientes B2B en el mercado paraguayo.',
+    tech: ['WordPress', 'UI/UX', 'SEO'],
+    link: 'https://linkea.com.py', linkLabel: 'Ver sitio →',
+  },
+  {
+    num: '04', featured: false,
+    status: 'done', statusLabel: 'Realizado · Mercodental',
+    name: 'Mercodental',
+    desc: 'Ecommerce especializado para el sector odontológico. Catálogo de productos dentales, gestión de pedidos y panel de administración para distribuidores.',
+    tech: ['Next.js', 'MongoDB', 'Stripe', 'Ecommerce'],
+    link: '#', linkLabel: 'Ver proyecto →',
+  },
+  {
+    num: '05', featured: false,
+    status: 'presented', statusLabel: 'Presentado',
+    name: 'Sistema Taller Mecánico',
+    desc: 'Sistema de gestión integral para talleres mecánicos. Control de órdenes de trabajo, inventario de repuestos, historial de vehículos y facturación.',
+    tech: ['React', 'Node.js', 'MongoDB', 'PDF Reports'],
+    link: '#', linkLabel: 'Ver propuesta →',
+  },
+  {
+    num: '06', featured: false,
+    status: 'requested', statusLabel: 'En desarrollo · Mega7',
+    name: 'Mega7 Ecommerce',
+    desc: 'Plataforma de ecommerce para tienda de informática. Catálogo, carrito de compras, integración de pagos y panel de gestión de stock.',
+    tech: ['Next.js', 'MongoDB', 'Ecommerce', 'En desarrollo'],
+    link: '#', linkLabel: 'En proceso →',
+  },
+]
+
+const statusStyles: Record<string, { bg: string; border: string; color: string }> = {
+  done:      { bg: 'rgba(0,255,136,0.08)',  border: 'rgba(0,255,136,0.22)',  color: '#00ff88' },
+  presented: { bg: 'rgba(0,212,255,0.07)',  border: 'rgba(0,212,255,0.2)',   color: 'var(--accent)' },
+  requested: { bg: 'rgba(251,191,36,0.07)', border: 'rgba(251,191,36,0.2)',  color: '#fbbf24' },
+}
+
+export default function Projects() {
+  return (
+    <section id="proyectos" className="projects-section">
+
+      <div style={{
+        fontFamily: 'var(--font-mono)',
+        fontSize: '0.7rem',
+        color: 'var(--accent)',
+        letterSpacing: '0.25em',
+        textTransform: 'uppercase',
+        marginBottom: '0.8rem',
+      }}>
+      </div>
+
+      <h2 style={{
+        fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)',
+        fontWeight: 800,
+        letterSpacing: '-0.02em',
+        marginBottom: '1rem',
+      }}>
+        Lo que construimos
+      </h2>
+
+      <p style={{
+        color: 'var(--muted2)',
+        maxWidth: '520px',
+        lineHeight: 1.75,
+        marginBottom: '3.5rem',
+        fontSize: '0.98rem',
+      }}>
+        Sistemas reales en producción, resolviendo problemas concretos de empresas paraguayas.
+      </p>
+
+      <div className="projects-grid">
+        {projects.map((p) =>
+          p.featured
+            ? <FeaturedCard key={p.num} {...p} />
+            : <ProjectCard key={p.num} {...p} />
+        )}
+      </div>
+
+      <style>{`
+        .projects-section {
+          position: relative;
+          z-index: 1;
+          padding: 6rem 4rem;
+          background: var(--bg);
+        }
+        .projects-grid {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 1px;
+          background: var(--border);
+          border: 1px solid var(--border);
+        }
+        .featured-card {
+          grid-column: 1 / -1;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 3rem;
+          align-items: center;
+        }
+        @media (max-width: 768px) {
+          .projects-section {
+            padding: 4rem 1.5rem !important;
+          }
+          .projects-grid {
+            grid-template-columns: 1fr !important;
+          }
+          .featured-card {
+            grid-template-columns: 1fr !important;
+            gap: 1.5rem !important;
+          }
+          .featured-visual {
+            display: none !important;
+          }
+        }
+      `}</style>
+
+    </section>
+  )
+}
+
+function FeaturedCard({ num, status, statusLabel, name, desc, tech, link, linkLabel, icon }: any) {
+  const s = statusStyles[status]
+  return (
+    <div
+      className="featured-card"
+      style={{
+        background: 'var(--card)',
+        padding: '2.5rem',
+        transition: 'background 0.3s',
+        position: 'relative',
+        overflow: 'hidden',
+      }}
+      onMouseEnter={e => (e.currentTarget.style.background = 'var(--card2)')}
+      onMouseLeave={e => (e.currentTarget.style.background = 'var(--card)')}
+    >
+      <div>
+        <div style={{
+          fontFamily: 'var(--font-mono)',
+          fontSize: '0.68rem',
+          color: 'var(--muted)',
+          marginBottom: '0.8rem',
+          letterSpacing: '0.1em',
+        }}>
+          {num} / DESTACADO
+        </div>
+
+        <span style={{
+          display: 'inline-flex', alignItems: 'center', gap: '0.4rem',
+          fontFamily: 'var(--font-mono)', fontSize: '0.63rem',
+          padding: '0.22rem 0.7rem', borderRadius: '100px',
+          letterSpacing: '0.08em', marginBottom: '1rem',
+          textTransform: 'uppercase' as const,
+          background: s.bg, border: `1px solid ${s.border}`, color: s.color,
+        }}>
+          <span style={{ width: 5, height: 5, borderRadius: '50%', background: 'currentColor', flexShrink: 0 }} />
+          {statusLabel}
+        </span>
+
+        <div style={{ fontSize: '1.55rem', fontWeight: 800, letterSpacing: '-0.02em', marginBottom: '0.8rem' }}>
+          {name}
+        </div>
+
+        <p style={{ color: 'var(--muted2)', fontSize: '0.88rem', lineHeight: 1.65, marginBottom: '1.5rem' }}>
+          {desc}
+        </p>
+
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem', marginBottom: '1.5rem' }}>
+          {tech.map((t: string) => (
+            <span key={t} style={{
+              fontFamily: 'var(--font-mono)', fontSize: '0.65rem',
+              padding: '0.22rem 0.65rem',
+              border: '1px solid var(--border2)',
+              borderRadius: '2px', color: 'var(--muted2)',
+              letterSpacing: '0.05em',
+            }}>{t}</span>
+          ))}
+        </div>
+
+        <a href={link} style={{
+          fontFamily: 'var(--font-mono)', fontSize: '0.7rem',
+          color: 'var(--accent)', textDecoration: 'none',
+          letterSpacing: '0.06em', transition: 'letter-spacing 0.2s',
+        }}
+          onMouseEnter={e => (e.currentTarget.style.letterSpacing = '0.12em')}
+          onMouseLeave={e => (e.currentTarget.style.letterSpacing = '0.06em')}
+        >
+          {linkLabel}
+        </a>
+      </div>
+
+      {/* Visual — oculto en mobile */}
+      <div className="featured-visual" style={{
+        background: 'linear-gradient(135deg, var(--bg) 0%, var(--card2) 100%)',
+        border: '1px solid var(--border)',
+        borderRadius: '6px',
+        height: '220px',
+        display: 'flex', alignItems: 'center', justifyContent: 'center',
+        fontSize: '4rem', opacity: 0.4,
+      }}>
+        {icon}
+      </div>
+    </div>
+  )
+}
+
+function ProjectCard({ num, status, statusLabel, name, desc, tech, link, linkLabel }: any) {
+  const s = statusStyles[status]
+  const isRequested = status === 'requested'
+
+  return (
+    <div
+      style={{
+        background: 'var(--card)',
+        padding: '2.5rem',
+        transition: 'background 0.3s',
+        position: 'relative',
+        overflow: 'hidden',
+      }}
+      onMouseEnter={e => (e.currentTarget.style.background = 'var(--card2)')}
+      onMouseLeave={e => (e.currentTarget.style.background = 'var(--card)')}
+    >
+      <div style={{
+        fontFamily: 'var(--font-mono)', fontSize: '0.68rem',
+        color: 'var(--muted)', marginBottom: '0.8rem', letterSpacing: '0.1em',
+      }}>
+        {num}
+      </div>
+
+      <span style={{
+        display: 'inline-flex', alignItems: 'center', gap: '0.4rem',
+        fontFamily: 'var(--font-mono)', fontSize: '0.63rem',
+        padding: '0.22rem 0.7rem', borderRadius: '100px',
+        letterSpacing: '0.08em', marginBottom: '1rem',
+        textTransform: 'uppercase' as const,
+        background: s.bg, border: `1px solid ${s.border}`, color: s.color,
+      }}>
+        <span style={{ width: 5, height: 5, borderRadius: '50%', background: 'currentColor', flexShrink: 0 }} />
+        {statusLabel}
+      </span>
+
+      <div style={{ fontSize: '1.55rem', fontWeight: 800, letterSpacing: '-0.02em', marginBottom: '0.8rem' }}>
+        {name}
+      </div>
+
+      <p style={{ color: 'var(--muted2)', fontSize: '0.88rem', lineHeight: 1.65, marginBottom: '1.5rem' }}>
+        {desc}
+      </p>
+
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem', marginBottom: '1.5rem' }}>
+        {tech.map((t: string) => (
+          <span key={t} style={{
+            fontFamily: 'var(--font-mono)', fontSize: '0.65rem',
+            padding: '0.22rem 0.65rem',
+            border: '1px solid var(--border2)',
+            borderRadius: '2px', color: 'var(--muted2)',
+            letterSpacing: '0.05em',
+          }}>{t}</span>
+        ))}
+      </div>
+
+      <a href={link} style={{
+        fontFamily: 'var(--font-mono)', fontSize: '0.7rem',
+        color: isRequested ? '#fbbf24' : 'var(--accent)',
+        textDecoration: 'none', letterSpacing: '0.06em',
+        transition: 'letter-spacing 0.2s',
+      }}
+        onMouseEnter={e => (e.currentTarget.style.letterSpacing = '0.12em')}
+        onMouseLeave={e => (e.currentTarget.style.letterSpacing = '0.06em')}
+      >
+        {linkLabel}
+      </a>
+    </div>
+  )
+}
+</file>
+
+<file path="components/Services.tsx">
+/* eslint-disable react/jsx-no-comment-textnodes */
+'use client'
+
+const services = [
+  {
+    icon: '⚙️',
+    name: 'Desarrollo a medida',
+    desc: 'Sistemas y aplicaciones web construidas desde cero según los procesos específicos de tu empresa.',
+  },
+  {
+    icon: '🎨',
+    name: 'Diseño UI/UX',
+    desc: 'Interfaces intuitivas y atractivas que mejoran la experiencia del usuario y aumentan la conversión.',
+  },
+  {
+    icon: '🗄️',
+    name: 'Administración de BD',
+    desc: 'Diseño, optimización y mantenimiento de bases de datos SQL y NoSQL para máximo rendimiento.',
+  },
+  {
+    icon: '🌐',
+    name: 'Infraestructura & Redes',
+    desc: 'Configuración e implementación de servidores, redes y sistemas de backup empresariales.',
+  },
+  {
+    icon: '📱',
+    name: 'Apps Web',
+    desc: 'Aplicaciones web modernas, responsivas y optimizadas para todos los dispositivos.',
+  },
+  {
+    icon: '🔧',
+    name: 'Soporte Técnico',
+    desc: 'Mantenimiento, actualizaciones y soporte continuo para que tus sistemas funcionen sin interrupciones.',
+  },
+]
+
+export default function Services() {
+  return (
+    <section id="servicios" className="services-section">
+
+      <div style={{
+        fontFamily: 'var(--font-mono)',
+        fontSize: '0.7rem',
+        color: 'var(--accent)',
+        letterSpacing: '0.25em',
+        textTransform: 'uppercase',
+        marginBottom: '0.8rem',
+      }}>
+        // servicios
+      </div>
+
+      <h2 style={{
+        fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)',
+        fontWeight: 800,
+        letterSpacing: '-0.02em',
+        marginBottom: '1rem',
+      }}>
+        Qué hacemos
+      </h2>
+
+      <p style={{
+        color: 'var(--muted2)',
+        maxWidth: '520px',
+        lineHeight: 1.75,
+        marginBottom: '3.5rem',
+        fontSize: '0.98rem',
+      }}>
+        Soluciones tecnológicas integrales para empresas que quieren crecer.
+      </p>
+
+      <div className="services-grid">
+        {services.map((s) => (
+          <ServiceCard key={s.name} {...s} />
+        ))}
+      </div>
+
+      <style>{`
+        .services-section {
+          position: relative;
+          z-index: 1;
+          padding: 6rem 4rem;
+          background: var(--bg2);
+        }
+        .services-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 1px;
+          background: var(--border);
+          border: 1px solid var(--border);
+        }
+        @media (max-width: 768px) {
+          .services-section {
+            padding: 4rem 1.5rem !important;
+          }
+          .services-grid {
+            grid-template-columns: 1fr 1fr !important;
+          }
+        }
+        @media (max-width: 480px) {
+          .services-grid {
+            grid-template-columns: 1fr !important;
+          }
+        }
+      `}</style>
+
+    </section>
+  )
+}
+
+function ServiceCard({ icon, name, desc }: { icon: string; name: string; desc: string }) {
+  return (
+    <div
+      style={{
+        background: 'var(--card)',
+        padding: '2.2rem',
+        transition: 'background 0.3s',
+        position: 'relative',
+        overflow: 'hidden',
+      }}
+      onMouseEnter={e => {
+        e.currentTarget.style.background = 'var(--card2)'
+        const wrap = e.currentTarget.querySelector('.icon-wrap') as HTMLElement
+        if (wrap) {
+          wrap.style.background = 'rgba(0,212,255,0.15)'
+          wrap.style.borderColor = 'var(--accent)'
+          wrap.style.boxShadow = '0 0 16px rgba(0,212,255,0.2)'
+        }
+      }}
+      onMouseLeave={e => {
+        e.currentTarget.style.background = 'var(--card)'
+        const wrap = e.currentTarget.querySelector('.icon-wrap') as HTMLElement
+        if (wrap) {
+          wrap.style.background = 'rgba(0,212,255,0.08)'
+          wrap.style.borderColor = 'rgba(0,212,255,0.15)'
+          wrap.style.boxShadow = 'none'
+        }
+      }}
+    >
+      <div
+        className="icon-wrap"
+        style={{
+          width: '44px', height: '44px',
+          background: 'rgba(0,212,255,0.08)',
+          border: '1px solid rgba(0,212,255,0.15)',
+          borderRadius: '6px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          marginBottom: '1.2rem',
+          fontSize: '1.3rem',
+          transition: 'all 0.3s',
+        }}
+      >
+        {icon}
+      </div>
+
+      <div style={{
+        fontSize: '1rem',
+        fontWeight: 700,
+        marginBottom: '0.6rem',
+        letterSpacing: '-0.01em',
+      }}>
+        {name}
+      </div>
+
+      <p style={{
+        fontSize: '0.83rem',
+        color: 'var(--muted2)',
+        lineHeight: 1.65,
+      }}>
+        {desc}
+      </p>
+
+    </div>
+  )
+}
+</file>
+
+<file path="components/Team.tsx">
+'use client'
+
+import Image from 'next/image'
+
+const team = [
+  {
+    initials: 'CM',
+    name: 'Christian Morales',
+    role: 'Full Stack Developer',
+    desc: 'Desarrollo de sistemas completos, desde la base de datos hasta la interfaz. Especializado en arquitecturas escalables y soluciones empresariales.',
+    gradient: 'linear-gradient(135deg, #3b5eff, #00d4ff)',
+    photo: '/people/christian.jpg',
+  },
+  {
+    initials: 'DC',
+    name: 'Darío Cáceres',
+    role: 'CEO / Comercial',
+    desc: 'Lidera la estrategia de negocio y las relaciones comerciales. Conecta las necesidades del cliente con las soluciones tecnológicas del equipo.',
+    gradient: 'linear-gradient(135deg, #7c3aed, #3b5eff)',
+    photo: '/people/dario.jpg',
+  },
+  {
+    initials: 'DI',
+    name: 'Diego Invernizzi',
+    role: 'UI/UX Designer & DBA',
+    desc: 'Diseña experiencias digitales intuitivas y gestiona la arquitectura de bases de datos. La combinación perfecta entre estética y rendimiento.',
+    gradient: 'linear-gradient(135deg, #0891b2, #00d4ff)',
+    photo: '/people/diego.jpg',
+  },
+]
+
+export default function Team() {
+  return (
+    <section id="equipo" className="team-section">
+
+      <div style={{
+        fontFamily: 'var(--font-mono)',
+        fontSize: '0.7rem',
+        color: 'var(--accent)',
+        letterSpacing: '0.25em',
+        textTransform: 'uppercase',
+        marginBottom: '0.8rem',
+      }}>
+      </div>
+
+      <h2 style={{
+        fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)',
+        fontWeight: 800,
+        letterSpacing: '-0.02em',
+        marginBottom: '1rem',
+      }}>
+        Quiénes somos
+      </h2>
+
+      <p style={{
+        color: 'var(--muted2)',
+        maxWidth: '520px',
+        lineHeight: 1.75,
+        marginBottom: '3.5rem',
+        fontSize: '0.98rem',
+      }}>
+        Tres profesionales con distintas especialidades formando un equipo
+        completo para cualquier desafío tecnológico.
+      </p>
+
+      <div className="team-grid">
+        {team.map((member) => (
+          <TeamCard key={member.initials} {...member} />
+        ))}
+      </div>
+
+      <style>{`
+        .team-section {
+          position: relative;
+          z-index: 1;
+          padding: 6rem 4rem;
+          background: var(--bg2);
+        }
+        .team-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 1px;
+          background: var(--border);
+          border: 1px solid var(--border);
+        }
+        @media (max-width: 768px) {
+          .team-section {
+            padding: 4rem 1.5rem !important;
+          }
+          .team-grid {
+            grid-template-columns: 1fr !important;
+          }
+        }
+      `}</style>
+
+    </section>
+  )
+}
+
+function TeamCard({ initials, name, role, desc, gradient, photo }: {
+  initials: string
+  name: string
+  role: string
+  desc: string
+  gradient: string
+  photo: string
+}) {
+  return (
+    <div
+      style={{
+        background: 'var(--card)',
+        padding: '2.5rem',
+        position: 'relative',
+        overflow: 'hidden',
+        transition: 'background 0.3s',
+        cursor: 'default',
+      }}
+      onMouseEnter={e => {
+        const el = e.currentTarget
+        el.style.background = 'var(--card2)'
+        const bar = el.querySelector('.top-bar') as HTMLElement
+        if (bar) bar.style.transform = 'scaleX(1)'
+      }}
+      onMouseLeave={e => {
+        const el = e.currentTarget
+        el.style.background = 'var(--card)'
+        const bar = el.querySelector('.top-bar') as HTMLElement
+        if (bar) bar.style.transform = 'scaleX(0)'
+      }}
+    >
+      {/* Barra superior animada */}
+      <div
+        className="top-bar"
+        style={{
+          position: 'absolute',
+          top: 0, left: 0, right: 0,
+          height: '2px',
+          background: 'linear-gradient(90deg, var(--accent2), var(--accent))',
+          transform: 'scaleX(0)',
+          transformOrigin: 'left',
+          transition: 'transform 0.4s ease',
+        }}
+      />
+
+      {/* Avatar — foto si existe, iniciales si no */}
+      <div style={{
+        width: '64px', height: '64px',
+        borderRadius: '50%',
+        background: gradient,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        fontSize: '1.2rem',
+        fontWeight: 800,
+        color: 'white',
+        marginBottom: '1.5rem',
+        fontFamily: 'var(--font-mono)',
+        boxShadow: '0 4px 20px rgba(0,212,255,0.2)',
+        overflow: 'hidden',
+        position: 'relative',
+        flexShrink: 0,
+      }}>
+        <Image
+          src={photo}
+          alt={name}
+          fill
+          style={{ objectFit: 'cover' }}
+          onError={(e) => {
+            // Si la foto no carga, oculta la imagen y muestra las iniciales
+            e.currentTarget.style.display = 'none'
+          }}
+        />
+        <span style={{ position: 'relative', zIndex: 1 }}>{initials}</span>
+      </div>
+
+      <div style={{ fontSize: '1.15rem', fontWeight: 700, marginBottom: '0.3rem' }}>
+        {name}
+      </div>
+
+      <div style={{
+        fontFamily: 'var(--font-mono)',
+        fontSize: '0.7rem',
+        color: 'var(--accent)',
+        letterSpacing: '0.1em',
+        textTransform: 'uppercase',
+        marginBottom: '1rem',
+      }}>
+        {role}
+      </div>
+
+      <p style={{ fontSize: '0.86rem', color: 'var(--muted2)', lineHeight: 1.65 }}>
+        {desc}
+      </p>
+
+    </div>
+  )
+}
+</file>
+
+<file path="package.json">
+{
+  "name": "linkea-portfolio",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "next": "^16.2.3",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.2.3",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}
+</file>
+
+<file path="app/globals.css">
+:root {
+  --bg: #06090f;
+  --bg2: #0a0f19;
+  --card: #0d1420;
+  --card2: #111a28;
+  --border: #1a2540;
+  --border2: #243050;
+  --accent: #00d4ff;
+  --accent2: #3b5eff;
+  --text: #e0eaff;
+  --muted: #5a7090;
+  --muted2: #8aa0c0;
+  --green: #00ff88;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-outfit), sans-serif;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+/* ── MOBILE ── */
+@media (max-width: 768px) {
+  nav {
+    padding: 1rem 1.5rem !important;
+  }
+}
+</file>
+
+</files>
